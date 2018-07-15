@@ -1,0 +1,14 @@
+<div class="wrapper" *ngIf="weatherClass">
+  <h1>And the best weather is in...</h1>
+  <h2 class="city">{{weatherClass?.cityName}}</h2>
+  <img src="http://openweathermap.org/img/w/{{weatherClass?.img}}.png">
+  <h1 class="temperature">{{weatherClass?.temp}}&deg;</h1>
+  <div class="pan">
+    <div class="into temp">
+      <h3 class="tempMax tempM">Humidity: {{weatherClass?.humidity}}%</h3>
+    </div>
+  </div>
+  <button (click)="getBestWeather(capitalsArray, 22)">More comfortable for Female</button>
+  <br>
+  <button (click)="getBestWeather(capitalsArray, 20)">More comfortable for Male</button>
+</div>

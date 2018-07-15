@@ -1,0 +1,17 @@
+<h1 class="city" *ngIf="forecastCityName">Weather in {{forecastCityName}} for the next 5 days</h1>
+<h1 class="city" *ngIf="!forecastCityName">Select a city to see the weather for 5 days</h1>
+<div class="wrapper">
+  <div class="forecast" *ngFor="let dayWeather of forecast">
+    <div class="day">
+      <h2 class="date">{{dayWeather.date | date: 'MMMMd'}}</h2>
+      <img src="http://openweathermap.org/img/w/{{dayWeather?.img}}.png">
+      <h2 class="description">{{dayWeather.description}}</h2>
+      <h3 class="tempM">{{dayWeather.temp}}&deg;</h3>
+      <h3 class="tempM">{{dayWeather.humidity}}%</h3>
+    </div>
+  </div>
+</div>
+<form class="lookCity" [formGroup]="forecastForm" (ngSubmit)="onSubmit()">
+  <input type="text" class="cityName" formControlName="forecastCity" placeholder="Select a city">
+  <button class="btn">Search</button>
+</form>
